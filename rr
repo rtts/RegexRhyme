@@ -1,0 +1,18 @@
+#!/bin/bash
+[[ -z "$1" ]] && cat >&2 << EOF && exit 1
+
+RegexRhyme - find Dutch words that end with a given regular expression
+
+Synopsis:
+    $(basename $0) PATTERN
+
+Examples:
+    $(basename $0) aas               # words that rhyme with Sinterklaas
+    $(basename $0) [^o]ol            # words that rhyme with oliebol
+    $(basename $0) '(o|eau)'         # words that rhyme with kado/cadeau
+    $(basename $0) '[^o](ei|ij)[td]' # words that rhyme with bloementapijt
+
+EOF
+
+# Really, a whole Git repository for just a single one-liner?
+cat $(dirname "$(readlink --canonicalize -- "$BASH_SOURCE")")/wordlist.txt | awk "/$1\$/ { print length, \$0 }" | rev | sort | rev | sort -sn | cut -d" " -f2- | less
