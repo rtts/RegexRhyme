@@ -1,8 +1,8 @@
 RegexRhyme
 ===========
 
-*Find words in the [Dutch wordlist from OpenTaal][1] that end with a
-given regular expression.*
+*Find words in the [Dutch wordlist from OpenTaal](https://github.com/OpenTaal/opentaal-wordlist)
+that end with a given regular expression.*
 
 This repository contains the deceptively simple Bash one-liner that I
 use every year to write my Sinterklaasgedichten. It works on Windows,
@@ -26,5 +26,3 @@ redirect the output to the clipboard:
     rr aas | clip.exe    # Windows
     rr aas | pbcopy      # macOS
     rr aas | xclip       # GNU/Linux
-
-  [1] https://github.com/OpenTaal/opentaal-wordlist
